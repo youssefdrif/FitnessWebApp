@@ -51,6 +51,7 @@ export default defineComponent({
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  margin-left: 64px;
 }
 
 .rangeInput {
@@ -94,6 +95,7 @@ p {
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 48px;
+  margin-top: 64px;
 }
 
 input[type="range"] {
