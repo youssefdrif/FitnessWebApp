@@ -2,8 +2,8 @@
   <div class="home">
     <div class="grid-goals">
       <h1 class="headerText">Define your goals</h1>
-      <div>
-        <p>I'm</p>
+      <div class="div-choseyoursex">
+        <p class="text-goals">I'm</p>
         <div>
           <button
             class="button-definesex"
@@ -16,8 +16,8 @@
           </button>
         </div>
       </div>
-      <div>
-        <p>Weight goal</p>
+      <div class="div-weightgoal">
+        <p class="text-goals">Weight goal</p>
         <div>
           <button
             class="button-weight"
@@ -30,20 +30,54 @@
           </button>
         </div>
       </div>
-      <div>
-        <p>I'm {{ years }} years old</p>
+      <div class="div-years">
+        <p class="text-goals">I'm {{ years }} years old</p>
         <input type="range" v-model="years" min="0" max="90" step="1" class="rangeInput" />
       </div>
-      <div>
-        <p>My height: {{ height }} cm</p>
+      <div class="div-height">
+        <p class="text-goals">My height: {{ height }} cm</p>
         <input type="range" v-model="height" min="0" max="250" step="1" class="rangeInput" />
       </div>
-      <div>
-        <p>My weight: {{ weight }} kg</p>
+      <div class="div-weight">
+        <p class="text-goals">My weight: {{ weight }} kg</p>
         <input type="range" v-model="weight" min="0" max="200" step="1" class="rangeInput" />
       </div>
-      <div class="button-wrapper">
-        <router-link to="/goals" class="button">Define goals</router-link>
+      <div class="div-button">
+        <div class="button-wrapper">
+          <router-link to="/goals" class="button">Define goals</router-link>
+        </div>
+      </div>
+    </div>
+    <div class="grid-macros">
+      <h2 class="headerTextGoals">Your Daily Macros Goals</h2>
+      <div class="container">
+        <div class="circle">
+          <div class="span-circle">
+            <span class="total-text">Total</span>
+            <span class="num-kcal">1920</span>
+            <span class="kcal">KCal</span>
+          </div>
+        </div>
+      </div>
+      <div class="div-button">
+        <button class="button">Progression</button>
+      </div>
+      <p class="macros-text">Daily macros</p>
+      <div>
+        <div class="carbs-container">
+          <div class="protein">
+            <p class="number-carbs">75g</p>
+            <p>Protein</p>
+          </div>
+          <div class="carbs">
+            <p class="number-carbs">75g</p>
+            <p>Carbs</p>
+          </div>
+          <div class="fat">
+            <p class="number-carbs">75g</p>
+            <p>Fat</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -86,16 +120,110 @@ export default defineComponent({
 </script>
 
 <style scoped>
+* {
+  --font-size: 24px;
+}
 .home {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  margin-left: 64px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 32px;
+  grid-row-gap: 0px;
 }
 
-.grid-goals{
-	display: grid;
+.grid-goals {
+  margin-left: 64px;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.grid-macros {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div-button {
+  margin-top: 64px;
+  display: flex;
+  justify-content: center;
+}
+
+.carbs-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 24px;
+}
+
+.circle {
+  width: 275px;
+  height: 285px;
+  border: 30px solid #00bd7e;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.span-circle {
+  display: grid;
+}
+
+.total-text {
+  color: #fff;
+  font-size: var(--font-size);
+  text-align: center;
+}
+
+.num-kcal {
+  color: #00bd7e;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.kcal {
+  color: #00bd7e;
+  font-size: var(--font-size);
+  text-align: center;
+}
+
+.macros-text {
+  font-size: var(--font-size);
+  margin-left: 50px;
+  margin-top: 64px;
+  color: #00bd7e;
+}
+
+.text-goals {
+  font-size: var(--font-size);
+}
+
+.number-carbs {
+  font-size: var(--font-size);
+  font-weight: bold;
+  color: #00bd7e;
+  text-align: center;
+}
+
+.protein,
+.carbs,
+.fat {
+  font-size: var(--font-size);
+  background-color: #363636;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.div-choseyoursex,
+.div-weightgoal,
+.div-years,
+.div-weight,
+.div-height {
+  margin-bottom: 32px; /* changed the size compared to the figma on desktop */
 }
 
 .rangeInput {
@@ -120,7 +248,7 @@ export default defineComponent({
   color: #fff;
   border-radius: 8px;
   text-align: center;
-  font-size: 24px;
+  font-size: var(--font-size);
   border: none;
 }
 
@@ -148,12 +276,13 @@ p {
   height: 49px;
   background-color: #00bd7e;
   color: #fff;
+  border: none;
   border-radius: 8px;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: var(--font-size);
 }
 
 .button:hover {
@@ -166,6 +295,15 @@ p {
   font-weight: 700;
   margin-bottom: 48px;
   margin-top: 64px;
+}
+
+.headerTextGoals {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 48px;
+  margin-top: 64px;
+  text-align: center;
 }
 
 input[type='range'] {
