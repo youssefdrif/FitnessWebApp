@@ -308,7 +308,7 @@ p {
 
 input[type='range'] {
   font-size: 1.5rem;
-  width: 12.5em;
+  width: 26em;
 }
 
 input[type='range'] {
