@@ -63,7 +63,6 @@
         <button class="button">Progression</button>
       </div>
       <p class="macros-text">Daily macros</p>
-	  HAVE TO FIX THE DAILY MACROS MARGIN
       <div>
         <div class="carbs-container">
           <div class="protein">
@@ -193,7 +192,7 @@ export default defineComponent({
 
 .macros-text {
   font-size: var(--font-size);
-  margin-left: 50px;
+  text-align: center;
   margin-top: 64px;
   color: #00bd7e;
 }
@@ -244,6 +243,7 @@ export default defineComponent({
 
 .button-weight,
 .button-definesex {
+  cursor: pointer;
   width: 210px;
   height: 49px;
   color: #fff;
