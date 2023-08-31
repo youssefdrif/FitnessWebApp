@@ -63,6 +63,7 @@
         <button class="button">Progression</button>
       </div>
       <p class="macros-text">Daily macros</p>
+	  HAVE TO FIX THE DAILY MACROS MARGIN
       <div>
         <div class="carbs-container">
           <div class="protein">
